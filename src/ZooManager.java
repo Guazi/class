@@ -1,4 +1,5 @@
 import com.sun.org.apache.xml.internal.utils.XMLString;
+import org.omg.CORBA.DynAnyPackage.Invalid;
 
 import java.util.Date;
 
@@ -6,8 +7,12 @@ public class ZooManager {
     public static void main(String[] args) {
 
         ZooOrganizer myZoo = new ZooOrganizer();
+        try {
+            myZoo.openFile("animals.xml");
+        } catch (InvalidAnimalException ex) {
+            System.out.println("The file you tried to load has invalid class" + ex);
+        }
 
-        myZoo.openFile("animals.xml");
         Animal carl = new Lion("carl", new Date("06/18/1986"), 12, "Lion");
         Animal jackie = new Pig("jackie", new Date("06/18/1986"), 12, "Pig");
 
