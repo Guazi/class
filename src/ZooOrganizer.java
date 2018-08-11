@@ -107,7 +107,7 @@ public class ZooOrganizer {
                     // https://stackoverflow.com/questions/5658182/initializing-a-class-with-class-forname-and-which-have-a-constructor-which-tak
                     try {
                         // returns the Class object for the class with the specified name
-                        Class cls = Class.forName("Lion");
+                        Class cls = Class.forName(species);
                         Constructor c = cls.getConstructor(String.class, Date.class, Integer.class, String.class);
                         Animal animal = (Animal) c.newInstance(name, convertedDate, age, species);
                         this.zoo.addAnimal(animal);
