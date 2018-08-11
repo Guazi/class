@@ -20,7 +20,7 @@ import java.util.Date;
 
 import java.lang.*;
 
-class InvalidAnimalException extends Exception
+class InvalidAnimalException extends RuntimeException
 {
     // Parameterless Constructor
     public InvalidAnimalException() {}
@@ -31,6 +31,7 @@ class InvalidAnimalException extends Exception
         super(message);
     }
 }
+
 
 public class ZooOrganizer {
     public Zoo zoo;
