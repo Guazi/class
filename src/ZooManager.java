@@ -13,7 +13,7 @@ public class ZooManager {
             System.out.println("The file you tried to load has invalid class" + ex);
         }
 
-        Animal carl = new Lion("carl", new Date("06/18/1986"), 12, "Lion");
+        Animal carl = new Lion("carlsssss", new Date("06/18/1986"), 12, "Lion");
         Animal jackie = new Pig("jackie", new Date("06/18/1986"), 12, "Pig");
 
 
@@ -36,8 +36,8 @@ public class ZooManager {
 //        Animal newcarl = new Eagle("carl", new Date("06/18/1986"), 44, "Eagle");
 //        myZoo.updateAnimal(1, newcarl);
 //
-//        Animal newani = myZoo.getAnimal(1);
-//        newani.age = 1;
+        Animal newani = myZoo.getAnimal(1);
+        newani.setAge(1);
 
         System.out.println("Jackie will live this much longer :" + jackie.calculateLifeExpectancy());
 //

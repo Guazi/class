@@ -11,7 +11,7 @@ public class Turtle extends Reptile{
 
     @Override
     public Integer calculateLifeExpectancy() {
-        int lifeExpectancy = 110 - age;
+        int lifeExpectancy = 110 - getAge();
         return lifeExpectancy;
     }
 }

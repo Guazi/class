@@ -12,7 +12,7 @@ public class Mammal extends Animal {
 
     @Override
     public Integer calculateLifeExpectancy() {
-        int lifeExpectancy = 15 - age;
+        int lifeExpectancy = 15 - getAge();
         return lifeExpectancy;
     }
 }

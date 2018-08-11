@@ -56,8 +56,13 @@ public class ZooOrganizer {
             doc.appendChild(rootElement);
 
             for(Animal a : this.zoo.getAnimals()) {
+                try {
+                    Class cls = Class.forName(a.getSpecies());
+                    rootElement.appendChild(getAnimal(doc, a));
+                } catch (Exception ex) {
+                    throw new InvalidAnimalException("Bad Save");
+                }
 //                TODO: Make a validator for species here, if a.species not validated, pop it from the list and throw InvalidAnimalException
-                rootElement.appendChild(getAnimal(doc, a));
             }
 
 
@@ -108,7 +113,7 @@ public class ZooOrganizer {
                     // https://stackoverflow.com/questions/5658182/initializing-a-class-with-class-forname-and-which-have-a-constructor-which-tak
                     try {
                         // returns the Class object for the class with the specified name
-                        Class cls = Class.forName("AAA");
+                        Class cls = Class.forName("SDFD");
                         Constructor c = cls.getConstructor(String.class, Date.class, Integer.class, String.class);
                         Animal animal = (Animal) c.newInstance(name, convertedDate, age, species);
                         this.zoo.addAnimal(animal);
@@ -152,10 +157,10 @@ public class ZooOrganizer {
 
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
-        animal_element.appendChild(getAnimalElements(doc, animal_element, "name", a.name));
-        animal_element.appendChild(getAnimalElements(doc, animal_element, "birthDate", sdf.format(a.birthDate)));
-        animal_element.appendChild(getAnimalElements(doc, animal_element, "age", String.valueOf(a.age)));
-        animal_element.appendChild(getAnimalElements(doc, animal_element, "species", a.species));
+        animal_element.appendChild(getAnimalElements(doc, animal_element, "name", a.getName()));
+        animal_element.appendChild(getAnimalElements(doc, animal_element, "birthDate", sdf.format(a.getBirthDate())));
+        animal_element.appendChild(getAnimalElements(doc, animal_element, "age", String.valueOf(a.getAge())));
+        animal_element.appendChild(getAnimalElements(doc, animal_element, "species", a.getSpecies()));
 
         return animal_element;
     }

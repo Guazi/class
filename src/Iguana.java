@@ -11,7 +11,7 @@ public class Iguana extends Reptile {
 
     @Override
     public Integer calculateLifeExpectancy() {
-        int lifeExpectancy = (1 / age)*10;
+        int lifeExpectancy = (1 / getAge())*10;
         return lifeExpectancy;
     }
 }
