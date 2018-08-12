@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Animals xmlns="https://www.danielavery.net">
     <Animal>
-        <name>John</name>
-        <birthDate>06/18/1986</birthDate>
-        <age>12</age>
+        <name>Joe</name>
+        <birthDate>08/10/2000</birthDate>
+        <age>18</age>
         <species>Lion</species>
     </Animal>
     <Animal>
-        <name>carl</name>
-        <birthDate>06/18/1986</birthDate>
-        <age>1</age>
-        <species>Lion</species>
+        <name>Rubber</name>
+        <birthDate>08/10/2005</birthDate>
+        <age>13</age>
+        <species>Goat</species>
     </Animal>
     <Animal>
-        <name>jackie</name>
-        <birthDate>06/18/1986</birthDate>
-        <age>12</age>
-        <species>Pig</species>
+        <name>Slow</name>
+        <birthDate>08/10/1990</birthDate>
+        <age>28</age>
+        <species>Turtle</species>
     </Animal>
 </Animals>

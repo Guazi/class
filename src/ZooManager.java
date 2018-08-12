@@ -54,13 +54,12 @@ public class ZooManager {
         myZoo.addAnimal(xml);
 
 
-
+        // Here we can delete an animal from the zoo
 //        myZoo.deleteAnimal(carl);
-//
 
         // Here we can add a new animal and replace the existing animal at index 1
-        Animal newcarl = new Eagle("carl", new Date("06/18/1986"), 44, "Eagle");
-        myZoo.updateAnimal(1, newcarl);
+//        Animal newcarl = new Eagle("carl", new Date("06/18/1986"), 44, "Eagle");
+//        myZoo.updateAnimal(1, newcarl);
 
 
         // Here we an get an existing animal and modify its properties with getters/setters
