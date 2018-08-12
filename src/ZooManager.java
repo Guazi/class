@@ -57,6 +57,9 @@ public class ZooManager {
         // Here we can delete an animal from the zoo
 //        myZoo.deleteAnimal(carl);
 
+        // We cam also delete by id
+//        myZoo.deleteAnimal(1);
+
         // Here we can add a new animal and replace the existing animal at index 1
 //        Animal newcarl = new Eagle("carl", new Date("06/18/1986"), 44, "Eagle");
 //        myZoo.updateAnimal(1, newcarl);
@@ -70,8 +73,10 @@ public class ZooManager {
 //
         try {
             myZoo.saveFile("animalsout.xml");
+            // We shouldn't actually run into InvalidAnimalException unless we rethrow InvalidAnimalException
+            // at ZooOrganizer line 63. But since this is not a domain requirement, we just throw exception and skip
         } catch (InvalidAnimalException ex) {
-            System.out.println("The file you tried to load has invalid class" + ex);
+            System.out.println("The file you tried to save has invalid class" + ex);
         }
 
 

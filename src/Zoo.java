@@ -67,6 +67,11 @@ public class Zoo {
         return animalList;
     }
 
+    public ArrayList<Animal> deleteAnimal(int id) {
+        this.animalList.remove(id);
+        return animalList;
+    }
+
     public ArrayList<Animal> updateAnimal(int id, Animal zooAnimal) {
         this.animalList.set(1, zooAnimal);
 //        Loop through array list, check each item for name, return index of match

@@ -63,7 +63,6 @@ public class ZooOrganizer {
                     // Alternatively we could throw InvalidAnimalError here, but not a domain requirement
                     System.out.println("Skipped saving " + a.getSpecies() + " because its an invalid class exception: " + ex);
                 }
-//                TODO: Make a validator for species here, if a.species not validated, pop it from the list and throw InvalidAnimalException
             }
 
 
@@ -143,6 +142,10 @@ public class ZooOrganizer {
 
     public void deleteAnimal(Animal myAnimal) {
         this.zoo.deleteAnimal(myAnimal);
+    }
+
+    public void deleteAnimal(int id) {
+        this.zoo.deleteAnimal(id);
     }
 
     public void updateAnimal(int id, Animal myAnimal) {
