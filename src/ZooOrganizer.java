@@ -40,7 +40,7 @@ public class ZooOrganizer {
         this.zoo = new Zoo();
     }
 
-    public void saveFile(String filename) {
+    public void saveFile(String filename) throws InvalidAnimalException {
         // Check if file exists, dont need to create again if does. Read existing file into memory
         // If not exist, create new file
         // https://examples.javacodegeeks.com/core-java/nio/java-nio-append-file-example/\
@@ -60,7 +60,8 @@ public class ZooOrganizer {
                     Class cls = Class.forName(a.getSpecies());
                     rootElement.appendChild(getAnimal(doc, a));
                 } catch (Exception ex) {
-                    throw new InvalidAnimalException("Bad Save");
+                    // Alternatively we could throw InvalidAnimalError here, but not a domain requirement
+                    System.out.println("Skipped saving " + a.getSpecies() + " because its an invalid class exception: " + ex);
                 }
 //                TODO: Make a validator for species here, if a.species not validated, pop it from the list and throw InvalidAnimalException
             }
@@ -110,18 +111,16 @@ public class ZooOrganizer {
 
                     String species = elem.getElementsByTagName("species").item(0).getTextContent();
 
-                    // https://stackoverflow.com/questions/5658182/initializing-a-class-with-class-forname-and-which-have-a-constructor-which-tak
                     try {
                         // returns the Class object for the class with the specified name
-                        Class cls = Class.forName("SDFD");
+                        Class cls = Class.forName(species);
                         Constructor c = cls.getConstructor(String.class, Date.class, Integer.class, String.class);
                         Animal animal = (Animal) c.newInstance(name, convertedDate, age, species);
                         this.zoo.addAnimal(animal);
                     } catch(ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException ex) {
                         System.out.println(ex.toString());
-                        throw new InvalidAnimalException("ASDSDSA");
-//                        TODO: How to catch InvalidAnimalException here in the ZooManager.java method
-//                        throw new InvalidAnimalException("Bad Animal");
+                        // Throw InvalidAnimalException because the class of animal (aka species) is not in the domain.
+                        throw new InvalidAnimalException();
                     }
                 }
             }
@@ -136,6 +135,10 @@ public class ZooOrganizer {
 
     public void addAnimal(Animal myAnimal) {
         this.zoo.addAnimal(myAnimal);
+    }
+
+    public void addAnimal(String XMLString) {
+        this.zoo.addAnimal(XMLString);
     }
 
     public void deleteAnimal(Animal myAnimal) {
